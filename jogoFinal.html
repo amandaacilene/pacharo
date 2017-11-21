@@ -1,0 +1,35 @@
+﻿<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+		body {
+		background-color:ff6666;
+		}	
+		#defaultCanvas0{
+			display: none;
+		}
+		</style>
+		<script src="p5.js"></script>
+		<script src="jogoFinal.js"> </script>
+	</head>
+		<body style="margin-left: 30%;">
+		<div style="margin-top: 7%;"></div>
+		</body>
+
+		<script>
+			function jogar(){
+				document.getElementById('defaultCanvas0').style.display = 'block';
+				document.getElementById('btn').style.display = 'none';
+				testvar=true;
+			}
+		</script>
+	<button id='btn' onClick='jogar()' style='display:block; margin-left: 0px; width: 450;height: 500px; background-color:66CDAA; '> 
+		<p style="font-family: OCR A Std, monospace; font-size:25; margin-top: 100px;text-align: center;">Clique na tela para começar a jogar Pac-Haro 🐹</p>
+		<p style="font-family: OCR A Std, monospace; font-size:25; margin-top: -10px;text-align: center;">É fácil, funciona igual ao jogo Pac-Man</p>
+		<p style="color: FF6347; font-family: OCR A Std, monospace; font-size:25; margin-top: -10px;text-align: center;">Venha ser da equipe HAM-TA-RO</p>
+		<img src="./gifharo.gif" style="width: 80;height: 90px; margin-top: 20px; margin-left: 360px;">
+		<img src="./hamtaro2.png" style="width: 190;height: 70px; margin-top: -20px; margin-left: 230px;">
+	</button>
+
+</html>
+
