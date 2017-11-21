@@ -9,14 +9,31 @@
 			display: none;
 		}
 		.dirBtn{
-			width: 70px;
+			font-size:30;
+			background-color:66CDAA;
+			width: 50px;
 			height: 50px;
+			text-align: center;
+		}
+		#butaoMostrar{
+			width: 300px;
+			height: 30px;
+			font-family: OCR A Std, monospace;
+			font-size:20; 
+			margin-top: -40%;
+			text-align: center;
+			background-color:66CDAA;
+			margin-left: 50%;
+		}
+		#but{
+			margin-top:-5px;
+			text-align: center;
 		}
 		
 		</style>
 		<script src="p5.js"></script>
 	</head>
-		<body style="margin-left: 30%;">
+		<body style="margin-left: 25%;">
 
 		<input type="hidden" value="undefined" id="direcao"/>
 
@@ -45,40 +62,31 @@
 			document.getElementById('direcao').value = dir;
 		}
 
-		function alteraVisibilidadeDosBotoes(){
-			tb = document.getElementById('table-btns');
-			if (tb.style.display == 'none') {
-				tb.style.display = 'block';
-			} else {
-				tb.style.display = 'none';
-			}
-		}
 	</script>
 	
 	<div id="game-canvas"></div>
 
-	<button onclick="alteraVisibilidadeDosBotoes()">Mostrar teclado</button>
 
-	<table style="margin-left: 13%; display: none;" id="table-btns">
+	<table style="margin-left: 57%; margin-top: -33%;" id="table-btns">
 		<tr>
 			<td></td>
 			<td>
-				<button class="dirBtn" onclick="mudarDirecao('cima')">^</button>
+				<button class="dirBtn" onclick="mudarDirecao('cima')"><p id="but">↑</p></button>
 			</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>
-				<button class="dirBtn" onclick="mudarDirecao('esquerda')">&lt;</button></td>
+				<button class="dirBtn" onclick="mudarDirecao('esquerda')"><p id="but">←</p></button></td>
 			<td></td>
 			<td>
-				<button class="dirBtn" onclick="mudarDirecao('direita')">&gt;</button>					
+				<button class="dirBtn" onclick="mudarDirecao('direita')"><p id="but">→</p> </button>					
 			</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td>
-				<button class="dirBtn" onclick="mudarDirecao('baixo')">v</button>
+				<button class="dirBtn" onclick="mudarDirecao('baixo')"><p id="but">↓</p></button>
 			</td>
 			<td></td>
 		</tr>

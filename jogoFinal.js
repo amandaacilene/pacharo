@@ -15,6 +15,7 @@ var tempoDeInicio = Date.now();
 var tg = 0;
 var testvar=false;
 var yExtraPt = -60;
+var xExtraPt = -60;
 
 function setup() {
   createCanvas(550, 500).parent('game-canvas');
@@ -76,7 +77,9 @@ function pontuacao(){
 			if(cenario[i][j] == 'm' && dist(j*tamBloco+(tamBloco/2), i*tamBloco+(tamBloco/2), x, y) <= tamBloco/2){
 				cenario[i][j] = 'v';
 				pontos+=3;
-				yExtraPt = 19;
+				//yExtraPt = 19;
+				yExtraPt = y;
+				xExtraPt = x-60;
 			}
 			if(cenario[i][j] == 'c' && dist(j*tamBloco+(tamBloco/2), i*tamBloco+(tamBloco/2), x, y) <= tamBloco/2){
 				cenario[i][j] = 'v';
@@ -137,6 +140,7 @@ function draw() {
 	//Locomoção pela esqueda <--
   
    direcao = document.getElementById('direcao').value;
+   //console.log(direcao);
 
    if (keyIsDown(LEFT_ARROW) || direcao == 'esquerda') {
      if ( ! colisao( x - 6 - tamBloco/31, y ) ) {
@@ -282,15 +286,17 @@ function draw() {
 	text("Pontos: "+pontos, 110, 19);
 
 	//Animação
+	textSize(50);
 	fill(255,102,102);
-	text(" +3 ", 200, yExtraPt);
+	text(" +3 ", xExtraPt, yExtraPt);
 	fill(0);
 	tempo++;
+	textSize(17);
 	text("Tempo: "+Math.floor(tempo/30)+"s", 245, 19);
 	text("Vidas: "+vidas, 365, 19);
 	pontuacao();
 	// (parseInt((Date.now()-tempoDeInicio)/1000))
-	yExtraPt--;
+	yExtraPt -= 15;
 	if (alphaTransicao > 0&&testvar){
 		tempo = 0;
 		alphaTransicao -= 7;
