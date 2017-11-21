@@ -17,7 +17,7 @@ var testvar=false;
 var yExtraPt = -60;
 
 function setup() {
-  createCanvas(550, 500);
+  createCanvas(550, 500).parent('game-canvas');
 }
 var tamBloco = 30; 
 var x , y; 
@@ -135,29 +135,32 @@ function draw() {
     }
   }
 	//Locomoção pela esqueda <--
-   if (keyIsDown(LEFT_ARROW)) {
+  
+   direcao = document.getElementById('direcao').value;
+
+   if (keyIsDown(LEFT_ARROW) || direcao == 'esquerda') {
      if ( ! colisao( x - 6 - tamBloco/31, y ) ) {
 	   if (tempo>0)
 		x = x - 6;
      }
    }
    //Locomoção pela direita -->
-   if ( keyIsDown(RIGHT_ARROW)) { 
+   if ( keyIsDown(RIGHT_ARROW) || direcao == 'direita') { 
      if ( ! colisao( x + 4 + tamBloco/2, y )) {
 	   if (tempo>0)
 		x = x + 6;       
      } 
    }
-   if (keyIsDown(UP_ARROW)) {
+   if (keyIsDown(UP_ARROW) || direcao == 'cima') {
 	 if ( ! colisao( x + 5, y - 23 - tamBloco/60) ) {
 		if (tempo>0)
 		  y = y - 6;       
      } 
 	}
-   if (keyIsDown(DOWN_ARROW)) {
+   if (keyIsDown(DOWN_ARROW) || direcao == 'baixo') {
 	 if ( ! colisao( x + 5, y + 5 + tamBloco/31) ) {
 		if (tempo>0)
-		  y = y + 6;       
+		  y = y + 6;
      } 
 	} 
 	//Criação do Jogador 1 - Hantaro 
