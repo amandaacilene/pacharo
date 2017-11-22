@@ -4,6 +4,7 @@ var nivel = 1;
 var pontos = 0; 
 var vidas = 2; 
 var tempo = 0; 
+var zerou = false;
 
 var speed1 = 2;
 var speed2 = 3;
@@ -101,8 +102,11 @@ function pontuacao(){
 						b = 270;
 					} else if (nivel == 5){
 						c = 120;
-					}	
-				}	
+					} else if (nivel == 6 && !zerou){
+						tempoFim = tempo;
+						zerou = true;
+					}
+				} 
 			}	
 		}	
 	}	
@@ -138,9 +142,7 @@ function draw() {
     }
   }
 	//Locomoção pela esqueda <--
-  
-   direcao = document.getElementById('direcao').value;
-   //console.log(direcao);
+	direcao = document.getElementById('direcao').value;
 
    if (keyIsDown(LEFT_ARROW) || direcao == 'esquerda') {
      if ( ! colisao( x - 6 - tamBloco/31, y ) ) {
@@ -150,19 +152,19 @@ function draw() {
    }
    //Locomoção pela direita -->
    if ( keyIsDown(RIGHT_ARROW) || direcao == 'direita') { 
-     if ( ! colisao( x + 4 + tamBloco/2, y )) {
+     if ( ! colisao( x + 7 + tamBloco/1.5, y )) {
 	   if (tempo>0)
 		x = x + 6;       
      } 
    }
    if (keyIsDown(UP_ARROW) || direcao == 'cima') {
-	 if ( ! colisao( x + 5, y - 23 - tamBloco/60) ) {
+	 if ( ! colisao( x + 6, y - 24 - tamBloco/50) ) {
 		if (tempo>0)
 		  y = y - 6;       
      } 
 	}
    if (keyIsDown(DOWN_ARROW) || direcao == 'baixo') {
-	 if ( ! colisao( x + 5, y + 5 + tamBloco/31) ) {
+	 if ( ! colisao( x + 6, y + 6 + tamBloco/10) ) {
 		if (tempo>0)
 		  y = y + 6;
      } 
@@ -298,7 +300,8 @@ function draw() {
 	// (parseInt((Date.now()-tempoDeInicio)/1000))
 	yExtraPt -= 15;
 	if (alphaTransicao > 0&&testvar){
-		tempo = 0;
+		if (nivel==1)
+			tempo = 0;
 		alphaTransicao -= 7;
 		fill(0, 0, 0, alphaTransicao);
 		rect(0, 0, 450, 480);
@@ -339,8 +342,9 @@ function draw() {
 		fill(255, 255, 255);
 		textSize(80);
 		text("🌟", 170, 115);
-		textSize(80);
-		text("Parabéns!", 35, 240);
+		textSize(20);
+		if (tempoFim)
+			text("Parabéns! Terminou em " + Math.floor(tempoFim/30) + "s", 35, 240);
 		textSize(20);
 		text("Agora você é membro da equipe.", 25, 280);
 		textSize(42);
