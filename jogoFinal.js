@@ -152,7 +152,7 @@ function draw() {
    }
    //Locomoção pela direita -->
    if ( keyIsDown(RIGHT_ARROW) || direcao == 'direita') { 
-     if ( ! colisao( x + 7 + tamBloco/1.5, y )) {
+     if ( ! colisao( x + 8 + tamBloco/1.6, y )) {
 	   if (tempo>0)
 		x = x + 6;       
      } 
@@ -170,6 +170,7 @@ function draw() {
      } 
 	} 
 	//Criação do Jogador 1 - Hantaro 
+	fill(0);
 	textSize(23);
   	text("🐹", x, y);
 	
@@ -314,10 +315,10 @@ function draw() {
 		rect(0, 0, 450, 480);
 		fill(255, 255, 255);
 		textSize(80);
-		text("💔",150,200);
-		text("Game Over", 25, 280);
+		text("💔",190,160);
+		text("Game Over", 15, 280);
 		textSize(35);
-		text("Espere 2 segundos", 55, 320);
+		text("Espere 2 segundos", 50, 320);
 		tg++;
 		if(tg/30==2){
 			tg = 0;
@@ -341,14 +342,14 @@ function draw() {
 		rect(0, 0, 450, 480);
 		fill(255, 255, 255);
 		textSize(80);
-		text("🌟", 170, 115);
+		text("🌟", 180, 125);
 		textSize(20);
 		if (tempoFim)
-			text("Parabéns! Terminou em " + Math.floor(tempoFim/30) + "s", 35, 240);
+			text("Parabéns! Terminou em " + Math.floor(tempoFim/30) + "s! ", 75, 240);
 		textSize(20);
-		text("Agora você é membro da equipe.", 25, 280);
+		text("Agora você é membro da equipe.", 55, 280);
 		textSize(42);
-		text("🐹 🐻 🐷 🐸 🐰",35,345);
+		text("🐹 🐻 🐷 🐸 🐰",80,345);
 		tg++;
 		if(tg/30==5){
 			x = 29;
