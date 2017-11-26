@@ -54,8 +54,8 @@ function renovaCenario(){
 renovaCenario();
 
 //Variaveis de Desenho
-var x = 35;
-var y = 81;
+var x = 31;
+var y = 80;
 var z = 200;
 var w = -12399123;
 var a = -19341232;
@@ -89,8 +89,8 @@ function pontuacao(){
 					pontos = 0;
 					nivel++;	
 					alphaTransicao = 250;
-					x = 35;
-					y = 81;
+					x = 31;
+					y = 80;
 					renovaCenario();
 					j = cenario[0].length;
 					i = cenario.length;	
@@ -152,33 +152,33 @@ function draw() {
    }
    //Locomoção pela direita -->
    if ( keyIsDown(RIGHT_ARROW) || direcao == 'direita') { 
-     if ( ! colisao( x + 10 + tamBloco/1.5, y )) {
+     if ( ! colisao( x + 11 + tamBloco/1.5, y )) {
 	   if (tempo>0)
 		x = x + 6;       
      } 
    }
    if (keyIsDown(UP_ARROW) || direcao == 'cima') {
-	 if ( ! colisao( x + 6, y - 24 - tamBloco/50) ) {
+	 if ( ! colisao( x + 7, y - 25 - tamBloco/50) ) {
 		if (tempo>0)
 		  y = y - 6;       
      } 
 	}
    if (keyIsDown(DOWN_ARROW) || direcao == 'baixo') {
-	 if ( ! colisao( x + 6, y + 6 + tamBloco/10) ) {
+	 if ( ! colisao( x + 7, y + 7 + tamBloco/10) ) {
 		if (tempo>0)
 		  y = y + 6;
      } 
 	} 
 	//Criação do Jogador 1 - Hantaro 
 	fill(0);3
-	textSize(23);
+	textSize(21);
   	text("🐹", x, y);
 	
 	//Movimento e objeto do nível 1 - coala
-	textSize(23);
-  	text("🐨", z, 264);
+	textSize(21);
+  	text("🐨", z, 263);
 	
-	if(z > 264){
+	if(z > 263){
         speed1 = -2;
     } 
     if(z < 149){
@@ -187,20 +187,20 @@ function draw() {
 	z+=speed1;
 	
 	//Colisão com Coala 
-	if(dist(x,y, z, 264) < 30){
+	if(dist(x,y, z, 263) < 30){
 		vidas--;
 		pontos = 0;
-		x = 29;
-		y = 81;
+		x = 31;
+		y = 80;
 		renovaCenario();
 		j = cenario[0].length;
 		i = cenario.length;	
 	}
 	
 	//Movimento e Objetos do nível 2 - urso
-	textSize(23);
-  	text("🐻", w, 324);
-  	if(w > 324){
+	textSize(21);
+  	text("🐻", w, 323);
+  	if(w > 323){
         speed2 = -3;
     } 
     if(w < 90){
@@ -209,39 +209,39 @@ function draw() {
 	w+=speed2;
 	
 	//Colisão com Urso
-	if(dist(x,y, w, 324) < 30){
+	if(dist(x,y, w, 323) < 30){
 		vidas--;
 		pontos = 0;
-		x = 29;
-		y = 81;
+		x = 31;
+		y = 80;
 		renovaCenario();
 		j = cenario[0].length;
 		i = cenario.length;	
 	}
 	
 	//Movimento e Objetos do nível 3 - porco
-	textSize(23);
-  	text("🐷", 393,a);
+	textSize(21);
+  	text("🐷", 392,a);
   	if(a > 436){
         speed3 = -4;
-    } 6
+    }
     if(a < 90){
         speed3 = 4;
     } 
 	a+=speed3;
 	//Colisão com Porco
-	if(dist(x,y, 393, a)<30){
+	if(dist(x,y, 392, a)<30){
 		vidas--;
 		pontos = 0;
-		x = 29;
-		y = 81;
+		x = 31;
+		y = 80;
 		renovaCenario();
 		j = cenario[0].length;
 		i = cenario.length;	
 	}
 	//Movimento e Objetos do nível 4 - sapo
-	textSize(23);
-  	text("🐸", 30.5,b);
+	textSize(21);
+  	text("🐸", 30,b);
   	if(b > 436){
         speed4 = -4.5;
     } 
@@ -250,19 +250,19 @@ function draw() {
     } 
 	b+=speed4;
 	//Colisão com Sapo
-	if(dist(x,y, 30.5, b)<30){
+	if(dist(x,y, 30, b)<30){
 		vidas--;
 		pontos = 0;
-		x = 29;
-		y = 81;
+		x = 31;
+		y = 80;
 		renovaCenario();
 		j = cenario[0].length;
 		i = cenario.length;	
 
 	}
 	//Movimento e Objetos do nível 5 - coelho
-	textSize(23);
-  	text("🐰", 90,c);
+	textSize(21);
+  	text("🐰", 89,c);
   	if(c > 180){
         speed5 = -4.5;
     } 
@@ -272,11 +272,11 @@ function draw() {
 	c+=speed5;
 	
 	//Colisão com Coelho
-	if(dist(x,y, 90, c)<30){
+	if(dist(x,y, 89, c)<30){
 		vidas--;
 		pontos = 0;
-		x = 29;
-		y = 81;
+		x = 31;
+		y = 80;
 		renovaCenario();
 		j = cenario[0].length;
 		i = cenario.length;	
@@ -314,16 +314,16 @@ function draw() {
 		fill(102,	205,170);
 		rect(0, 0, 450, 480);
 		fill(255, 255, 255);
-		textSize(80);
-		text("💔",190,160);
-		text("Game Over", 15, 280);
-		textSize(35);
-		text("Espere 2 segundos", 50, 320);
+		textSize(81);
+		text("💔🙊",125,160);
+		text("Game Over", 30, 280);
+		textSize(30);
+		text("Espere 2 segundos 😎", 60, 320);
 		tg++;
 		if(tg/30==2){
 			tg = 0;
-			x = 29;
-			y = 81;
+			x = 31;
+			y = 80;
 			w = -12399123;
 			a = -19341232;
 			b = -1239123;
@@ -342,18 +342,18 @@ function draw() {
 		rect(0, 0, 450, 480);
 		fill(255, 255, 255);
 		textSize(80);
-		text("🌟", 180, 125);
-		textSize(20);
+		text("👑", 165, 125);
+		textSize(30);
 		if (tempoFim)
-			text("Parabéns! Terminou em " + Math.floor(tempoFim/30) + "s! ", 75, 240);
-		textSize(20);
-		text("Agora você é membro da equipe.", 55, 280);
+			text("Parabéns. Terminou em " + Math.floor(tempoFim/30) + "s! ", 20, 240);
+		textSize(22);
+		text("Agora você é membro da equipe.", 40, 280);
 		textSize(42);
-		text("🐹 🐻 🐷 🐸 🐰",80,345);
+		text("🐹 🐻 🐷 🐸 🐰",45,390);
 		tg++;
 		if(tg/30==5){
-			x = 29;
-			y = 81;
+			x = 31;
+			y = 80;
 			renovaCenario();
 			j = cenario[0].length;
 			i = cenario.length;	
